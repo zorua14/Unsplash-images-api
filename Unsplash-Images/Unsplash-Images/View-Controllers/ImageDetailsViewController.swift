@@ -15,7 +15,6 @@ class ImageDetailsViewController: UIViewController {
     
     @IBOutlet weak var userName: UILabel!
     
-    
     @IBOutlet weak var twitterUserName: UILabel!
     
     @IBOutlet weak var bio: UILabel!
@@ -48,6 +47,7 @@ class ImageDetailsViewController: UIViewController {
                self.reachability.whenUnreachable = { _ in
                    print("Not reachable")
                    if let networkVC = self.storyboard?.instantiateViewController(identifier: "NoInternetViewController") as? NoInternetViewController{
+                       self.spinner.stopAnimating()
                        self.present(networkVC, animated: true)
                    }
                }

@@ -42,7 +42,6 @@ class ImagesViewController: UIViewController {
     }
     //MARK: - REFRESH
     @objc func refresh(_ sender: AnyObject) {
-       // Code to refresh table view
         print("Refreshing")
         self.currentPage = 1
         self.latest = nil
@@ -83,7 +82,7 @@ class ImagesViewController: UIViewController {
         }
 
 }
-//MARK: - TABLEVIEW AND SEARCHBAR
+//MARK: - TABLEVIEW EXTENSIONS
 extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredData.count == 0{
@@ -127,15 +126,12 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
         if currentPage<total_pages && indexPath.row == filteredData.count - 1{
             currentPage = currentPage + 1
             if latest != nil{
-                //APIHandler.shared.filterAPI(currentPage, self, "architecture-interior")
                 viewmodel.getFilteredImages(currentPage, self, "architecture-interior")
             }
             else if oldest != nil{
-                //APIHandler.shared.filterAPI(currentPage, self, "experimental")
                 viewmodel.getFilteredImages(currentPage, self, "experimental")
             }
             else if featured != nil{
-                //APIHandler.shared.filterAPI(currentPage, self, "3d-renders")
                 viewmodel.getFilteredImages(currentPage, self, "3d-renders")
             }
             else{
@@ -150,6 +146,7 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
         vc.displayDetails = filteredData[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    //MARK: - SEARCH
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == ""{
             filteredData = results
@@ -164,7 +161,7 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
                     tableview.isHidden = false
                 }
             }
-           // filteredData = results.filter({($0.alt_description!.capitalized.contains(searchText.trimmingCharacters(in: .whitespaces)))})
+           
             filteredData = results.filter { item in
                 let altDescription = item.alt_description?.capitalized ?? "No title found"
                 return altDescription.contains(searchText.trimmingCharacters(in: .whitespaces).capitalized)
@@ -177,6 +174,7 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
     }
     //MARK: - FILTER
    @IBAction func buttonClicked(_ sender: UIBarButtonItem) {
+       print("Double tap and hold")
         let latest = UIAction(title: "Latest") { _ in
             print("Latest  is selected")
             self.currentPage = 1
@@ -185,8 +183,6 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
             self.featured = nil
             self.filteredData = []
             self.results = []
-            //MARK: - ADD VIEWMODEL FUNC HERE
-            //APIHandler.shared.filterAPI(self.currentPage, self, "architecture-interior")
             self.viewmodel.getFilteredImages(self.currentPage, self, "architecture-interior")
         }
         let oldest = UIAction(title: "Oldest") { _ in
@@ -197,7 +193,6 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
             self.latest = nil
             self.filteredData = []
             self.results = []
-           // APIHandler.shared.filterAPI(self.currentPage, self, "nature")
             self.viewmodel.getFilteredImages(self.currentPage, self, "nature")
         }
        let featured = UIAction(title: "Featured") { _ in
@@ -208,7 +203,6 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
            self.oldest = nil
            self.filteredData = []
            self.results = []
-          // APIHandler.shared.filterAPI(self.currentPage, self, "3d-renders")
            self.viewmodel.getFilteredImages(self.currentPage, self, "3d-renders")
        }
         let menu = UIMenu(title: "Filter By",children: [latest,oldest,featured])
@@ -242,7 +236,7 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
                 return firstDate < secondDate
             } else {
                 print("Something wrong at date")
-                return false // Handle invalid dates here
+                return false
             }
         }
         results = sortedArray
@@ -261,7 +255,7 @@ extension ImagesViewController: UITableViewDelegate,UITableViewDataSource,UISear
                 return firstDate > secondDate
             } else {
                 print("Something wrong at date")
-                return false // Handle invalid dates here
+                return false
             }
         }
         results = sortedArray

@@ -9,9 +9,10 @@ import Foundation
 import Alamofire
 class APIHandler{
     static let shared = APIHandler()
-    func sendRequest(_ page:Int,_ vc: ImagesViewController,_ refreshing: Bool = false)
+    private init() { }
+    func sendRequest(_ page: Int,_ vc: ImagesViewController,_ refreshing: Bool = false)
     {
-        let url = "https://api.unsplash.com/photos?page=\(page)&client_id=8d4aoxlNmw3EF8yfyvZMAKHyA7hREGPdwdlWGNan0Kw"
+        let url = "https://api.unsplash.com/photos?page=\(page)&client_id=\(client_id)"
         let header: HTTPHeaders = [
             "Connection": "keep-alive"
         ]
@@ -22,21 +23,21 @@ class APIHandler{
                 if  response.response!.statusCode == 401{
                     AlertManager.shared.showAlert(from: vc, withTitle: "Unauthenticated", message: "Give valid client id")
                 }
-               else if response.response!.statusCode == 200{
+                else if response.response!.statusCode == 200{
                     do{
                         let jsonData = try JSONDecoder().decode([Result].self, from: data!)
                         DispatchQueue.main.async {
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                             dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-
+                            
                             let sortedArray = jsonData.sorted { (first, second) in
                                 if let firstDate = dateFormatter.date(from: first.created_at ?? "2000-01-01T00:00:00Z"),
                                    let secondDate = dateFormatter.date(from: second.created_at ?? "2000-01-01T00:00:00Z") {
                                     return firstDate > secondDate
                                 } else {
                                     print("Something wrong at date")
-                                    return false // Handle invalid dates here
+                                    return false
                                 }
                             }
                             vc.results.append(contentsOf: sortedArray)
@@ -52,7 +53,7 @@ class APIHandler{
                     }
                     catch{
                         print(error.localizedDescription)
-                            vc.spinner.stopAnimating()
+                        vc.spinner.stopAnimating()
                     }
                 }
             case .failure(let err):
@@ -63,11 +64,10 @@ class APIHandler{
     func filterAPI(_ page:Int,_ vc: ImagesViewController,_ topic:String)
     {
         
-        let url = "https://api.unsplash.com/topics/\(topic)/photos?page=\(page)&client_id=8d4aoxlNmw3EF8yfyvZMAKHyA7hREGPdwdlWGNan0Kw"
+        let url = "https://api.unsplash.com/topics/\(topic)/photos?page=\(page)&client_id=\(client_id)"
         let header: HTTPHeaders = [
             "Connection": "keep-alive"
         ]
-      
         
         AF.request(url,method: .get,encoding: URLEncoding.default,headers: header).response{
             response in
@@ -80,7 +80,7 @@ class APIHandler{
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
                             dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-
+                            
                             let sortedArray = jsonData.sorted { (first, second) in
                                 if let firstDate = dateFormatter.date(from: first.created_at ?? "2000-01-01T00:00:00Z"),
                                    let secondDate = dateFormatter.date(from: second.created_at ?? "2000-01-01T00:00:00Z") {
@@ -99,7 +99,7 @@ class APIHandler{
                     }
                     catch{
                         print(error.localizedDescription)
-                            vc.spinner.stopAnimating()
+                        vc.spinner.stopAnimating()
                     }
                 }
             case .failure(let err):

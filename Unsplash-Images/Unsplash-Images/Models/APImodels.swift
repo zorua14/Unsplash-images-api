@@ -7,9 +7,6 @@
 
 import Foundation
 
-struct APIResponse: Codable{
-    let results:[Result]
-}
 struct Result:Codable{
     let id: String?
     let slug: String?

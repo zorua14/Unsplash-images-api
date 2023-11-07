@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import Alamofire
 class ImageDetailsViewModel{
-   //static let shared = ImageDetailsViewModel()
-    func setDetails(_ data:Result,_ vc: ImageDetailsViewController){
+   
+    func setDetails(_ data: Result,_ vc: ImageDetailsViewController){
         
         var username:String = "Username"
         
@@ -46,7 +46,7 @@ class ImageDetailsViewModel{
         self.configure(with: (data.urls?.full)!, vc)
         
     }
-    func configure(with urlString: String,_ vc:ImageDetailsViewController ){
+    func configure(with urlString: String,_ vc: ImageDetailsViewController ){
         guard let url = URL(string: urlString) else{
             return
         }
@@ -61,11 +61,9 @@ class ImageDetailsViewModel{
                     vc.displayImage.image = image
                     vc.spinner.stopAnimating()
                 }
-            }else{
-                vc.spinner.stopAnimating()
             }
         }
-            task.resume()
+        task.resume()
         
     }
 }

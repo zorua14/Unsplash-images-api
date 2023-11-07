@@ -15,7 +15,7 @@ class AlertManager {
     
     func showAlert(from viewController: UIViewController, withTitle title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        //If needed also get input for ok
+        
         let okAction = UIAlertAction(title: "OK", style: .default,handler: nil)
             
         alertController.addAction(okAction)

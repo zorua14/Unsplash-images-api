@@ -18,6 +18,8 @@
 		F12C28142AF0DF3A00659F0E /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C28132AF0DF3900659F0E /* LoadingCell.swift */; };
 		F12C28162AF0E6EE00659F0E /* ImageDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C28152AF0E6EE00659F0E /* ImageDetailsViewModel.swift */; };
 		F12C28182AF0E70E00659F0E /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12C28172AF0E70E00659F0E /* ImageDetailsViewController.swift */; };
+		F14AA1592AFA8E270025DA48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F14AA1582AFA8E260025DA48 /* GoogleService-Info.plist */; };
+		F154C4052AFA978A00CCE22C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F154C4042AFA978A00CCE22C /* SignUpViewController.swift */; };
 		F1BB89332AEF90EE00B437A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB89322AEF90EE00B437A5 /* AppDelegate.swift */; };
 		F1BB89352AEF90EE00B437A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB89342AEF90EE00B437A5 /* SceneDelegate.swift */; };
 		F1BB89372AEF90EE00B437A5 /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB89362AEF90EE00B437A5 /* ImagesViewController.swift */; };
@@ -27,6 +29,7 @@
 		F1BB89472AEF92CD00B437A5 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB89462AEF92CD00B437A5 /* NoInternetViewController.swift */; };
 		F1BB894F2AEFAE4C00B437A5 /* APImodels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB894E2AEFAE4C00B437A5 /* APImodels.swift */; };
 		F1BB89512AEFAE5F00B437A5 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BB89502AEFAE5F00B437A5 /* APIHandler.swift */; };
+		F1E61A882AF7025D00267023 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E61A872AF7025D00267023 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,8 @@
 		F12C28132AF0DF3900659F0E /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		F12C28152AF0E6EE00659F0E /* ImageDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewModel.swift; sourceTree = "<group>"; };
 		F12C28172AF0E70E00659F0E /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
+		F14AA1582AFA8E260025DA48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F154C4042AFA978A00CCE22C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F1BB892F2AEF90EE00B437A5 /* Unsplash-Images.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unsplash-Images.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1BB89322AEF90EE00B437A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1BB89342AEF90EE00B437A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 		F1BB89462AEF92CD00B437A5 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		F1BB894E2AEFAE4C00B437A5 /* APImodels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APImodels.swift; sourceTree = "<group>"; };
 		F1BB89502AEFAE5F00B437A5 /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
+		F1E61A872AF7025D00267023 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +160,10 @@
 				F1BB894C2AEFADEF00B437A5 /* Models */,
 				F1BB893B2AEF90F200B437A5 /* Assets.xcassets */,
 				F1BB89402AEF90F200B437A5 /* Info.plist */,
+				F14AA1582AFA8E260025DA48 /* GoogleService-Info.plist */,
 				F1BB89322AEF90EE00B437A5 /* AppDelegate.swift */,
 				F1BB89342AEF90EE00B437A5 /* SceneDelegate.swift */,
+				F1E61A872AF7025D00267023 /* Constants.swift */,
 			);
 			path = "Unsplash-Images";
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 				F1BB89362AEF90EE00B437A5 /* ImagesViewController.swift */,
 				F12C28172AF0E70E00659F0E /* ImageDetailsViewController.swift */,
 				F1BB89462AEF92CD00B437A5 /* NoInternetViewController.swift */,
+				F154C4042AFA978A00CCE22C /* SignUpViewController.swift */,
 			);
 			path = "View-Controllers";
 			sourceTree = "<group>";
@@ -247,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1BB893F2AEF90F200B437A5 /* LaunchScreen.storyboard in Resources */,
+				F14AA1592AFA8E270025DA48 /* GoogleService-Info.plist in Resources */,
 				F12C28102AF0C6A500659F0E /* Inter.ttf in Resources */,
 				F12C280E2AF0C4F500659F0E /* Cell.xib in Resources */,
 				F12C28082AF0C34300659F0E /* Lato-Bold.ttf in Resources */,
@@ -312,6 +322,8 @@
 				F1BB89472AEF92CD00B437A5 /* NoInternetViewController.swift in Sources */,
 				F1BB89512AEFAE5F00B437A5 /* APIHandler.swift in Sources */,
 				F12C28142AF0DF3A00659F0E /* LoadingCell.swift in Sources */,
+				F1E61A882AF7025D00267023 /* Constants.swift in Sources */,
+				F154C4052AFA978A00CCE22C /* SignUpViewController.swift in Sources */,
 				F1BB89352AEF90EE00B437A5 /* SceneDelegate.swift in Sources */,
 				F10810A22AF645EF0034C12B /* AlertManager.swift in Sources */,
 				F1BB894F2AEFAE4C00B437A5 /* APImodels.swift in Sources */,
@@ -466,6 +478,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Unsplash-Images/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -494,6 +507,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Unsplash-Images/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Unsplash;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
